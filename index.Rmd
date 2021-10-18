@@ -1,6 +1,6 @@
 ---
-title: "VIS 2128 - Portfolio"
-author: "**Mike Lidwin** | Fall 2021"
+title: "**VIS 2128 - Portfolio**"
+subtitle: "**Mike Lidwin** | Fall 2021"
 output: 
   rmdformats::downcute
 ---
@@ -14,9 +14,18 @@ body {
 text-align: justify}
 </style>
 
-# Introduction
+<style>
+body {
+font-family: arial}
+</style>
+
+# introduction
 \superscript^*__Contribution Statement:__*^
 \superscript^*All three members attempted and completed the online tutorials for Assignments 4 and 5. We each crafted the maps independently and collectively determined which maps to include for the final deliverable. We aided each other in moments of troubleshooting and collaborated to create maps. Each of us were assigned the city of Chelsea for our studio projects, so this investigation was created and used, in part, in studio presentations. 10 points for all.*^
+
+<p style="font-family: times, serif; font-size:13pt; font-style:italic">
+    Why did we use these specific parameters during the calculation of the fingerprints?
+</p>
 
 Your portfolio should demonstrate each of the following skills (not all of which are demonstrated in this example):
 
@@ -34,7 +43,7 @@ Your portfolio should demonstrate each of the following skills (not all of which
 
 
 
-# **MIDDLESEX COUNTY, MA**
+# **GREATER BOSTON, MA**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
 
 ## **Interactive Map**
@@ -44,14 +53,6 @@ This interactive map demonstrates the following skills:
 
 [![](thumbnails/interactive_map.PNG)](https://mike-lid.github.io/folio/fullsize/LIDWIN_Week6_InteractiveMap.html){target="_blank"}
 \superscript^*__Fig.02___Week 6 Assignment (Lidwin, 2021)*^
-
-
-
-
-
-
-# **CHELSEA**
-Here are two maps of Chelsea. I might include some text here about this set of maps.
 
 ## **Isochrones**
 This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
@@ -85,7 +86,7 @@ This map demonstrates the following skills:
 
 [![](thumbnails/clockboard.jpg)](https://mike-lid.github.io/folio/fullsize/clockboard.pdf){target="_blank"}
 
-# Maps of San Luis Obispo
+# **WASHINGTON, DC**
 Here are two maps of San Luis Obispo, California. I might include some text here as well.
 
 
