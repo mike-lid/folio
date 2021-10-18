@@ -15,12 +15,8 @@ text-align: justify}
 </style>
 
 # Introduction
-
-This is an example of a portfolio that someone might assemble to demonstrate the skills they have developed in VIS 2128. I have created this page using RMarkdown. There are fancier tools out there for creating and hosting webpages, and you are welcome to use any of those if you like. The advantage of this approach is that you can create your webpage directly from RStudio.
-
-This example uses the `downcute` theme, which is available if you install the `rmdformats` package. The themes in the `rmdformats` have a table of contents that only includes level-one headings.
-
-Other themes in the `rmdformats` package are `material`, `html_clean`, `html_docco`, `readthedown`, and `robobook`.  
+\superscript^*__Contribution Statement:__*^
+\superscript^*All three members attempted and completed the online tutorials for Assignments 4 and 5. We each crafted the maps independently and collectively determined which maps to include for the final deliverable. We aided each other in moments of troubleshooting and collaborated to create maps. Each of us were assigned the city of Chelsea for our studio projects, so this investigation was created and used, in part, in studio presentations. 10 points for all.*^
 
 Your portfolio should demonstrate each of the following skills (not all of which are demonstrated in this example):
 
@@ -38,6 +34,21 @@ Your portfolio should demonstrate each of the following skills (not all of which
 
 
 
+# **MIDDLESEX COUNTY, MA**
+Here are two maps of Chelsea. I might include some text here about this set of maps.
+
+## **Interactive Map**
+This interactive map demonstrates the following skills: 
+
+* Displaying data on an interactive map
+
+[![](thumbnails/interactive_map.PNG)](https://mike-lid.github.io/folio/fullsize/LIDWIN_Week6_InteractiveMap.html){target="_blank"}
+\superscript^*__Fig.02___Week 6 Assignment (Lidwin, 2021)*^
+
+
+
+
+
 
 # **CHELSEA**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
@@ -49,6 +60,8 @@ This map shows isochrones based on transit travel times to the nearest school. I
 * Calculating and displaying accessibility, based on travel time
 
 [![](thumbnails/a_chelsea_isocrone.png)](https://mike-lid.github.io/folio/fullsize/a_chelsea_isocrone.pdf){target="_blank"}
+\superscript^*__Fig.03___Week 4 Assignment (Khinda, Lidwin, Montoya, 2021)*^
+
 
 ## **Accessibility**
 This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
@@ -58,28 +71,7 @@ This map shows accessibility based on a distance-decay function of the walking t
 * Displaying raster data on a map
 
 [![](thumbnails/map8.jpg)](https://mike-lid.github.io/folio/fullsize/map8.jpg){target="_blank"}
-
-
-
-
-
-
-
-
-# **MIDDLESEX COUNTY, MA**
-Here are two maps of Chelsea. I might include some text here about this set of maps.
-
-## **Interactive Map**
-This interactive map demonstrates the following skills: 
-
-* Displaying data on an interactive map
-
-[![](thumbnails/interactive_map.PNG)](https://mike-lid.github.io/folio/fullsize/LIDWIN_Week6_InteractiveMap.html){target="_blank"}
-
-
-
-
-
+\superscript^*__Fig.04___Week 5 Assignment (Khinda, Lidwin, Montoya, 2021)*^
 
 
 
