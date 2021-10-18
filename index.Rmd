@@ -2,7 +2,7 @@
 title: "VIS 2128 - Portfolio"
 author: "**Mike Lidwin** | Fall 2021"
 output: 
-  rmdformats::html_clean
+  rmdformats::downcute
 ---
 
 ```{r setup, include=FALSE}
@@ -48,7 +48,7 @@ This map shows isochrones based on transit travel times to the nearest school. I
 * Displaying multiple vector layers on the same map
 * Calculating and displaying accessibility, based on travel time
 
-[![](thumbnails/SLO_isochrone.png)](https://mike-lid.github.io/folio/fullsize/SLO_schools.pdf){target="_blank"}
+[![](thumbnails/a_chelsea_isocrone.pdf)](https://mike-lid.github.io/folio/fullsize/a_chelsea_isocrone.pdf){target="_blank"}
 
 ## **Accessibility**
 This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
