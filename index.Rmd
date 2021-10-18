@@ -30,11 +30,11 @@ font-family: arial}
 
 <center>
 <p style="font-family: times, serif; font-size:13pt; font-style:italic">
-    **Why did we use these specific parameters during the calculation of the fingerprints?**
+    **"The aim of the grammar is to 'bring together in a coherent way things that previouslyappeared unrelated and which also will provide a basis for dealing systematically with newsituations' (Cox 1978). How well have we succeeded?" - H. Wickham, _A Layered Grammar of Graphics_, 2010**
 </p>
 </center>
 
-\superscript^*The following portfolio demonstrates a variety of skills, including:*^ 
+\superscript^*The following portfolio demonstrates a variety of skills learned while developing my grammar for data visualization. This includes:*^ 
 
 |        \superscript^*- displaying multiple vector layers on the same map*^  
 |        \superscript^*- calculating and displaying relationships among point and polygon layers based on distance*^  
@@ -46,18 +46,21 @@ font-family: arial}
 |        \superscript^*- displaying data on an interactive map*^  
 
 # **GREATER BOSTON, MA**
-Here are two maps of Chelsea. I might include some text here about this set of maps.
+\superscript^*I studied two areas of the Great Boston Region this semester: 1) the City of Chelsea and 2) Middlesex County. The investigations in these cities varied - from looking at the influence of higher education institutions on household type to analyzing green space access.*^
 
-## **Interactive Map**
-This interactive map demonstrates the following skills: 
+
+## **Household Type in Middlesex County (interactive) **
+According to the 2015 - 2019 American Community Survey, 28.5% of the population in Cambridge are students enrolled in college or graduate school programs. (Source: City of Cambridge Community Development Department, 2021). I wonder what effect the student population has on the family type in Cambridge and whether Cambridge will have more nonfamily household types than other areas of Middlesex County. For the following map, I referenced census data for household type. I am making the assumption that those in higher education will be more likely to fill out the voluntary ACS, so there may be confirmation bias in a map that only references this data. Therefore, I am using the census data in hopes of getting a more complete picture. 
 
 * Displaying data on an interactive map
 
 [![](thumbnails/interactive_map.PNG)](https://mike-lid.github.io/folio/fullsize/LIDWIN_Week6_InteractiveMap.html){target="_blank"}
 \superscript^*__Fig.02___Week 6 Assignment (Lidwin, 2021)*^
 
-## **Isochrones of Walkability**
-This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
+## **Walkability in Chelsea**
+In a 2012 presentation on Chelsea's environmental justice issues, GreenRoots presented data that Chelsea has some of the fewest amount of green spaces/parks per square mile in the Boston Metro Area. My group was interested in studying how accessible Chelsea's parks are to their residents. Thus, the following maps investigated walking distances to the nearest parks, as well as overall biking accessibilty. (Source: Aren Kabarajian, “Detox: GreenRoots’ Fight for Environmental Justice in Chelsea,” December 2017.)
+
+This isocrone map shows isochrones based on travel time to the nearest park. It features the following skills:
 
 * Displaying multiple vector layers on the same map
 * Calculating and displaying accessibility, based on travel time
@@ -67,7 +70,7 @@ This map shows isochrones based on transit travel times to the nearest school. I
 
 
 ## **Accessibility for Biking**
-This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
+This map shows overall accessibility rankings based on a distance-decay function of the biking time to the nearest transit stop. It demonstrates the following skills:
 
 * Displaying multiple vector layers on the same map
 * Calculating and displaying accessibility, based on travel time
@@ -79,25 +82,42 @@ This map shows accessibility based on a distance-decay function of the walking t
 
 
 # **VENICE, ITALY**
-Here are two maps of Chelsea. I might include some text here about this set of maps.
+\superscript^*Our group created a series of maps documenting the impact of flooding across the city of Venice. As our maps reveal, the buildings of the city that would be most impacted by 1 meter of flooding are located in the oldest neighborhoods, including some of Venice’s most notable landmarks like the Piazza San Marco. Newer landmasses added to the city are higher and seem to be built up with flooding in mind.*^
+   
+\superscript^*__Fun fact__: We stitched together the base-map from eight individual maps that were part of the Harvard Map Library. In fact, the series of maps were originally found in the GSD building and donated to the Map Library. We were excited to return this map to the GSD, in a way, through this project.*^
+
 
 ## **Flood Projections for Venice**
 This map demonstrates the following skills:
 
 * Georeferencing a raster image
-* Convert between raster and vector images (created vector outlines of rasterized data for flood areas)
+* Convert between raster and vector images (created vector cohntour outlines of rasterized data for flood areas in order to group similar areas together)
 
 [![](thumbnails/georeference-01.png)](https://mike-lid.github.io/folio/fullsize/georeference.pdf){target="_blank"}
 \superscript^*__Fig.05___Week 2 Assignment (Jamal, Lidwin, McGlinchey, Prasad, 2021)*^
 
 
 # **WASHINGTON, DC**
-Here are two maps of San Luis Obispo, California. I might include some text here as well.
-[![](thumbnails/dc-bb-01.png)](https://mike-lid.github.io/folio/fullsize/dc-bb.pdf){target="_blank"}
-\superscript^*__Fig.06___Week 3 Assignment (Bonanno, Lidwin, Myros 2021)*^
+\superscript^*I studied Washington, DC with my group for Assignment 3 - comparing the presense of a new "Books and Barbershops programs" with the location of existing public libraries in the city. The goal was to assess if this particular program (which seeks to host learning and literacy programs inside local barbershops) was particularly over-or-under-represented in certain neighborhoods. Thus, we analyzed the amount of point data within polygon datasets.*^
+
+## **Neighborhoods x Libraries**
+
+Before comparing neighborhoods that contained Barbershop & Book locations, we first wanted to see how many libraries existed in each neighborhood.  We used this data as a rough, and likely inaccurate, indication of whether a neighborhood had access to educational and learning-based programs. While several neighborhoods had at least one library, the areas with 2 libraries indicate libraries of the Smithsonian Institute. The Southeast area, compared to the northern area in DC, had  the least amount of neighborhood clusters with libraries - 6 neighborhood cluster areas had no public library within their boundary.
+
+This map demonstrates:
+
+* aggregating point data to a layer of polygons
+* calculating and displaying relationships of point and polygon data
 
 [![](thumbnails/dc-libraries-01.png)](https://mike-lid.github.io/folio/fullsize/dc-libraries.pdf){target="_blank"}
+\superscript^*__Fig.06___Week 3 Assignment (Bonanno, Lidwin, Myros 2021)*^
+
+## **Neighborhoods x B&B Sites**
+
+[![](thumbnails/dc-bb-01.png)](https://mike-lid.github.io/folio/fullsize/dc-bb.pdf){target="_blank"}
 \superscript^*__Fig.07___Week 3 Assignment (Bonanno, Lidwin, Myros 2021)*^
 
+---
+\superscript^*_The above maps were completed for the Spatial Analysis course, led by Dr. Carole Voulgaris (Fall 2021). They represent an understanding of software and visualization techniques learned through course lectures, software tutorials, and group discussions._*^
 
 
