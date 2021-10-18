@@ -20,28 +20,24 @@ font-family: arial}
 </style>
 
 # introduction
-\superscript^*__Contribution Statement:__*^
-\superscript^*All three members attempted and completed the online tutorials for Assignments 4 and 5. We each crafted the maps independently and collectively determined which maps to include for the final deliverable. We aided each other in moments of troubleshooting and collaborated to create maps. Each of us were assigned the city of Chelsea for our studio projects, so this investigation was created and used, in part, in studio presentations. 10 points for all.*^
+\superscript^*Lucy Fellowes once  said, __"Every map is someone’s way of getting you to look at the world his or her  way."__ (Lucy  Fellowes,  Smithsonian  curator,  quoted  in  Henrikson  1994 and in Kitchin, Perkins, and Dodge 2009). This course is my first formal class on map-making, and I've enjoyed thinking about my bias in visualizing various urban phenomena. Throughout this semester, I used R Studio and ArcGIS to develop a small breathe of maps, considering  how these visualizations begin to reveal (and exclude) information about the cities studied. Each week, I spent time looking at different cities across the world, so that I can get an idea of how data availability differs between major global cities. *^
 
+<center>
 <p style="font-family: times, serif; font-size:13pt; font-style:italic">
-    Why did we use these specific parameters during the calculation of the fingerprints?
+    **Why did we use these specific parameters during the calculation of the fingerprints?**
 </p>
+</center>
 
-Your portfolio should demonstrate each of the following skills (not all of which are demonstrated in this example):
+\superscript^*The following portfolio demonstrates a variety of skills, including:*^ 
 
-* Displaying multiple vector layers on the same map
-* Calculating and displaying relationships among point and polygon layers based on distance
-* Aggregating point data to a layer of polygons
-* Calculating and displaying accessibility, based on travel time
-* Converting between raster layers and vector layers
-* Displaying raster data on a map
-* Georeferencing a raster image
-* Displaying data on an interactive map
-
-
-
-
-
+|        \superscript^*- displaying multiple vector layers on the same map*^  
+|        \superscript^*- calculating and displaying relationships among point and polygon layers based on distance*^  
+|        \superscript^*- aggregating point data to a layer of polygons*^  
+|        \superscript^*- calculating and displaying accessibility, based on travel time*^  
+|        \superscript^*- converting between raster layers and vector layers*^  
+|        \superscript^*- displaying raster data on a map*^  
+|        \superscript^*- georeferencing a raster image*^  
+|        \superscript^*- displaying data on an interactive map*^  
 
 # **GREATER BOSTON, MA**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
