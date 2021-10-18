@@ -20,6 +20,10 @@ font-family: arial}
 </style>
 
 # introduction
+
+[![](thumbnails/focus-01.PNG)](https://mike-lid.github.io/folio/fullsize/focus.pdf){target="_blank"}
+
+
 \superscript^*Lucy Fellowes once  said, __"Every map is someone’s way of getting you to look at the world his or her  way."__ (Lucy  Fellowes,  Smithsonian  curator,  quoted  in  Henrikson  1994 and in Kitchin, Perkins, and Dodge 2009). This course is my first formal class on map-making, and I've enjoyed thinking about my bias in visualizing various urban phenomena. Throughout this semester, I used R Studio and ArcGIS to develop a small breathe of maps, considering  how these visualizations begin to reveal (and exclude) information about the cities studied. Each week, I spent time looking at different cities across the world, so that I can get an idea of how data availability differs between major global cities. *^
 
 <center>
@@ -78,9 +82,10 @@ Here are two maps of Chelsea. I might include some text here about this set of m
 ## **Clockboard Map**
 This map demonstrates the following skills:
 
-* Aggregating point data to a layer of polygons
+* Georeferencing a raster image
+* Convert between raster and vector images (created vector outlines of rasterized data for flood areas)
 
-[![](thumbnails/clockboard.jpg)](https://mike-lid.github.io/folio/fullsize/clockboard.pdf){target="_blank"}
+[![](thumbnails/georeference-01.png](https://mike-lid.github.io/folio/fullsize/georeference.pdf){target="_blank"}
 
 # **WASHINGTON, DC**
 Here are two maps of San Luis Obispo, California. I might include some text here as well.
