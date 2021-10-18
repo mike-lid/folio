@@ -42,7 +42,7 @@ Your portfolio should demonstrate each of the following skills (not all of which
 # **CHELSEA**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
 
-## Isochrones
+## **Isochrones**
 This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
 
 * Displaying multiple vector layers on the same map
@@ -50,7 +50,7 @@ This map shows isochrones based on transit travel times to the nearest school. I
 
 [![](thumbnails/SLO_isochrone.png)](https://mike-lid.github.io/folio/fullsize/SLO_schools.pdf){target="_blank"}
 
-## Accessibility
+## **Accessibility**
 This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
 
 * Displaying multiple vector layers on the same map
@@ -69,7 +69,7 @@ This map shows accessibility based on a distance-decay function of the walking t
 # **MIDDLESEX COUNTY, MA**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
 
-## Interactive Map
+## **Interactive Map**
 This interactive map demonstrates the following skills: 
 
 * Displaying data on an interactive map
@@ -86,7 +86,7 @@ This interactive map demonstrates the following skills:
 # **VENICE, ITALY**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
 
-## Clockboard Map
+## **Clockboard Map**
 This map demonstrates the following skills:
 
 * Aggregating point data to a layer of polygons
