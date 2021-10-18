@@ -1,0 +1,346 @@
+---
+title: "Comparing the New Barbershop&Bookstore Initiative and Presence of Public Libraries to DC Residential Areas"
+author:
+- name: "Emma Bonanno + Mike Lidwin + Kayla Myros"
+  affiliation: "VIS2128: Spatial Analysis | Assignment 03"
+date: "22 September 2021"
+output: 
+  html_document:
+    code_folding: hide
+---
+**ABSTRACT:** The following data maps Washington, DC - specifically analyzing locations of the Books & Barbershops Initiative, libraries, and low food access areas. We used a polygon dataset of neighborhood clusters to serve as an orienting device for the map viewers, in order to utilize a municipal boundary that was divided into enough areas to provide useful breakdowns of relationships to the three mapped variables. Read as a collective group, our maps seek to highlight the access DC has to reading and food resources, seeing if there are overlaps in  food access and literary access. For the case of the B&B initiative, we are curious if these community programs are implemented in places where there is existing access, or if they occur in more well-off areas. 
+
+The Books and Barbershops Initiative (B&B) recognizes the community presence that barbershops hold with local residents. Specifically in DC,  B&B  identifies select barbershops that offer community programs around academic mentoring and childhood literacy.(https://cfmb.dc.gov/page/books-and-barbershops.) We learned about this initiative while sourcing data on DC's open data website and enjoyed the opportunity of this project to not just learn about technicalities of mapping with R, but also in learning about cities through what data they have available and what interesting initiatives have a digital presence in their open source archives.
+
+**Disclaimer:** We used a very limited amount of data and do not intend to draw overarching conclusions from our maps, given that a variety of factors contribute to a communnity's access to certain basic needs.
+
+**Note:** Code-Folding was activated to reveal the code that helped create each map, in order to reveal aspects of the code that were customized to achieve the resulting map
+
+**Contribution Statement:** We met as a team to pick our datasets and decide which combinations of points and polygons to map. Individually, we each created 2 of the 6 maps, and we helped each other troubleshoot throughout the process, meeting in person and via Zoom to troubleshoot eachother's questions. Mike created a shared GitHub repository, Emma wrote the contribution statement, and Kayla did a final check through of the RMD file for cohesion. (10 points for all)
+
+```{r load packages, message=FALSE, include = FALSE, warning = FALSE}
+#above line labels the code chunk as "load packages" without seeing any of the package loading messages
+  library(sf)
+  library(tidyverse)
+  library(ggthemes)
+  library(ggspatial)
+  library(units)
+  library(nngeo)
+  library(ggeasy)
+```
+
+```{r load data, message=FALSE, include = FALSE}
+  
+  #load and define datasets
+  bshop <- st_read("point-a-bshop.kml", 
+                  quiet = TRUE) 
+  library <- st_read("point-b-libraries.kml", 
+                 quiet = TRUE)
+  food <- st_read("polygon-c-food-access.kml", 
+                   quiet = TRUE) 
+  clusters <- st_read("polygon-d-clusters.kml", 
+                 quiet = TRUE) 
+```
+
+```{r project coordinates, message = FALSE, include = FALSE}
+
+#load appropriate projection system for the DC area, and transform the data accordingly.
+DC_state_plane <- "+proj=lcc +lat_1=38.3 +lat_2=39.45 +lat_0=37.66666666666666 +lon_0=-77 +x_0=400000 +y_0=0 +ellps=GRS80 +units=m +no_def"
+
+bshop <- bshop %>%
+  st_transform(DC_state_plane)
+
+food <- food %>%
+  st_transform(DC_state_plane)
+
+clusters <- clusters %>%
+  st_transform(DC_state_plane)
+
+library <- library %>%
+  st_transform(DC_state_plane)
+```
+
+## Base Map
+The below map shows the four variables we chose to map throughout each investigation:
+- Locations of the Books & Barbershops Initiative
+- Public Libraries
+- Low Food Access Areas
+- Municipal Neighborhood Boundaries
+
+``` {r plot, message = FALSE}
+  
+ggplot(food) +
+  
+     #low food access
+      geom_sf(
+        data = food, 
+        aes(fill = "Low Food Access Areas"), 
+        color = "grey",
+        alpha = .5
+        ) +
+        
+      #Barbershops
+        geom_sf(data = bshop, 
+        aes(color = "Barbershops"), 
+        alpha = .5, 
+        size = 2,
+        fill = NA,
+        ) +
+  
+    #libraries
+        geom_sf(data = library, 
+        aes(color = "Libraries"), 
+        alpha = .5, 
+        size = 2,
+        fill = NA,
+        ) +
+  
+      #clusters
+      geom_sf(
+        data = clusters, 
+        aes(color="Neighborhood Boundaries"), 
+        alpha = 0.25, 
+        fill = NA) +
+  
+    #title
+    ggtitle("Locations of Books/Barbershops, Libraries,\nand Low Food Access Areas in Washington, DC") +
+    theme(
+         
+          #ADJUST TITLE
+           plot.title = element_text(
+            color="black", 
+            size=10, 
+            face="bold", #FONT FACE OPTIONS = PLAIN, BOLD, BOLD.ITALIC, ITALIC
+            vjust = 5,
+            hjust = .5))+
+            theme(plot.margin = unit(c(1,1,1,1), "cm"))+
+  
+  easy_center_title()+
+  
+  theme_map() +
+  theme(legend.position = "left",
+        legend.background = element_rect(fill = alpha("white", 0.5), 
+                                         color = "gray")) +
+  annotation_scale()+
+  scale_color_manual(values = c("navy", "darkcyan", "orange1"), name = "") +
+  scale_fill_manual(values = "yellow", name = "")
+```
+
+```{r Kayla, message=FALSE, include = FALSE}
+###KAYLA BELOW
+```
+
+```{r}
+libr_buffer <- st_buffer(library, dist = 500) %>%
+  st_union()
+
+bnb_libr <- bshop[libr_buffer,]
+
+bshop <- bshop %>%
+  st_join(bnb_libr) %>%
+  mutate(by_library = !is.na(Name.y))
+
+
+n_libr_bnb <- sum(bshop$by_library)
+
+n_bnb <- length(bshop$by_library)
+
+pct_library_bshop <- n_libr_bnb / n_bnb
+```
+
+## Mapping the Number and Proportion of Book-Barbershop Points within a Half-Kilometer of a Public Library Point.
+
+Barbershop Books is a community literacy program that provides age appropriate reading materials for elementary school aged children in barbershops around D.C. As of 2021, there were 30 recorded barbershops participating in this program. The map below compares the number of these participating barbershops within a half kilometer distance to a public library. This comparison provides context for areas in D.C. that have access to free reading materials.
+
+To accomplish this, we buffered the library data points with a half kilometer buffer, then created a variable to find the overlap of Barbershop Books within a half kilometer of a public library before merging the library file with the Barbershop Books file.
+
+```{r}
+left_side  <- st_bbox(clusters)$xmin
+top_side <- st_bbox(clusters)$ymax
+
+# ggplot(libr_buffer) +
+#   geom_sf(data = clusters, lty=0.2)+
+#   geom_sf(alpha = 0.25)+
+#   # geom_sf(data = bshop, color= "navy", alpha =.75)+
+#   geom_sf(data = bshop, size = 1, alpha =.5,
+#            aes(color = "red"))+
+
+
+ggplot(clusters) +
+  geom_sf(fill = NA, color= "darkgray" )+
+  geom_sf(data = libr_buffer, color= "lightgray", alpha =.25,
+          aes(fill = ""))+
+  geom_sf(data = bshop, size = 1, alpha =.5,
+           aes(color = "navy"))+
+  scale_color_manual(values = c( "navy"),
+          name = "Barbershops Books \nby proximity to Library", 
+          labels = c("barbershops")) +
+  scale_fill_manual(values = c("darkcyan"), name ="Library Buffer")+
+  annotation_scale(location = "br") +
+  annotation_north_arrow(location = "tr",
+                         style = north_arrow_fancy_orienteering()) +
+  annotate(geom = "text", x = left_side, 
+           y = top_side, 
+           label = paste("Of the ", 
+                         prettyNum(n_bnb, big.mark = ","),
+                         " Barbershop Books locations in D.C. \n", 
+                         prettyNum(n_libr_bnb, big.mark = ","),
+                         " (", 
+                         prettyNum(100*pct_library_bshop, digits = 0),
+                         "%) are within 0.5\n kilometer of a public.",
+                         sep = ""),
+           hjust = 0, vjust = .5, size = 2) +
+  theme_map() +
+  theme(panel.background = element_rect(fill = "white"),
+        legend.background = element_rect(fill = alpha("white", 0.5), 
+                                        color = "gray"))
+```
+
+
+## The Average Density of Public Library Points in Each Neighborhood Cluster Polygon
+
+For the second analysis, we mapped the density of libraries in the D.C. neighborhood clusters. This analysis shows which neighborhood clusters are served or under-served by libraries. 
+
+```{r}
+clusters <- clusters %>%
+  mutate(num_library = lengths(st_covers(clusters, library)))
+
+
+clusters <- clusters %>%
+  mutate(area = set_units(st_area(clusters), km^2)) %>%
+  mutate(library_dens = as.numeric(num_library / area))
+
+##create map##
+
+ggplot(clusters) +
+  geom_sf(color = "white", 
+          aes(fill = num_library)) +
+  scale_fill_viridis_c(option = "plasma", name = "D.C neighborhoods\nby library density",
+                       breaks = breaks <- seq(0, 5, by = 1),
+                       labels = paste(prettyNum(breaks, big.mark = ","),
+                                      "library / sq km")) +
+  annotation_scale(location = "br") +
+  annotation_north_arrow(location = "tr",
+                         style = north_arrow_fancy_orienteering()) +
+theme_map() +
+  theme(legend.background = element_rect(fill = alpha("white", 0.5), 
+                                         color = "gray"))
+```
+
+```{r Emma, message=FALSE, include = FALSE}
+###EMMA BELOW
+```
+
+## How many Books and Barbershops are in each neighborhood in Washington, DC?
+
+This map shows the number of locations of Books and Barbershops programs in each neighborhood in DC. The goal was to assess if this particular program was particularly over- or under- represented in certain neighborhoods. 
+```{r map3, message = FALSE, warning = FALSE}
+clusters <- clusters %>%
+  mutate(num_bshop = lengths(st_covers(clusters, bshop)))
+
+name = 
+  ggplot(clusters) +
+  geom_sf(color = "white", 
+          aes(fill = num_bshop)) +
+  scale_fill_viridis_c(option = "clarity", name = "Number of Books and Barbershops Locations
+in DC Neighborhoods",
+                       breaks = breaks <- seq(0, 5, by = 1),
+                       labels = paste(prettyNum(breaks, big.mark = ","),
+                                      "Books and Barbershops")) +
+  annotation_scale(location = "br") +
+  annotation_north_arrow(location = "tr",
+                         style = north_arrow_fancy_orienteering()) +
+theme_map() +
+  theme(legend.position = "left",
+        legend.background = element_rect(fill = alpha("white", 0.5), 
+                                         color = "gray"))
+
+plot(name)
+
+```
+
+```{r}
+ggsave("scatterplot.pdf", 
+   plot = name, 
+   device = "pdf", 
+   path = "C:\Users\Michael Lidwin\Documents\coursework\2021F\VIS 2128 - Spatial Analysis\folio\fullsize",
+   dpi = 320)
+```
+
+
+```{r}
+
+         ggplot(clusters)
+```
+
+## How many Books and Barbershops are in each Low Food Access Area in DC?
+
+The Books and Barbershops program is an attempt to raise awareness of the value of academic mentoring and early childhood literacy, both basic community needs. We chose to look at the locations of these data points in reference to a data set that demonstrates unequal access to another basic need - food. We wondered whether the B&B locations would appear in the low-access food areas, a potential indication of a community that is currently being underserved. However, as seen with the map, the B&B initiative seems to occur mostly in areas without low-access to food.
+```{r map4, message = FALSE}
+food <- food %>%
+  mutate(num_bshop = lengths(st_covers(food,bshop)))
+
+ggplot(food) +
+  geom_sf(color = NA, 
+          aes(fill = num_bshop)) +
+  scale_fill_viridis_c(option = "plasma", name = "Number of Books and Barbershops in
+Low Food Access Areas
+",
+                       breaks = breaks <- seq(0, 5, by = 1),
+                       labels = paste(prettyNum(breaks, big.mark = ","),
+                                      "Books and Barbershops")) +
+  annotation_scale(location = "br") +
+  annotation_north_arrow(location = "tr",
+                         style = north_arrow_fancy_orienteering()) +
+theme_map() +
+  theme(legend.position = "left", legend.background = element_rect(fill = alpha("white", 0.5),  color = "gray"))
+```
+
+```{r Mike, message=FALSE, include = FALSE}
+###MIKE BELOW
+```
+
+## How many Libraries are in each Neighborhood District?
+
+Before comparing neighborhoods that contained Barbershop & Book locations, we first wanted to see how many libraries existed in each neighborhood.  We used this data as a rough, and likely inaccurate, indication of whether a neighborhood had access to educational and learning-based programs. While several neighborhoods had at least one library, the areas with 2 libraries indicate libraries of the Smithsonian Institute. The Southeast area, compared to the northern area in DC, had  the least amount of neighborhood clusters with libraries - 6 neighborhood cluster areas had no public library within their boundary.
+
+```{r map5, message= FALSE, warning = FALSE}
+clusters <- clusters %>%
+  mutate(num_libraries = lengths(st_covers(clusters, library)))
+
+ggplot(clusters) +
+  geom_sf(color = "white", 
+          aes(fill = num_libraries)) +
+  scale_fill_viridis_c(name = "Washington DC Districts\nby number of libraries",
+                       breaks = breaks <- seq(0, 3, by = 1),
+                       labels = paste(prettyNum(breaks, big.mark = ","),
+                                      "libraries")) +
+  annotation_scale(location = "br") +
+  annotation_north_arrow(location = "tr",
+                         style = north_arrow_minimal()) +
+theme_map() +
+  theme(legend.position = "left", legend.background = element_rect(fill = alpha("white", 0.5),  color = "gray"))
+```
+
+## How many Low Food Access Areas are in each Neighborhood District?
+
+The plan of Washington, DC (like most, if not all, US cities) reveals a stark racial divide in which residents live in which ward. Historically, residents of the lower and eastern wards in DC experience the most financial inequity of the city. We hypothesized that these would also be the areas that contain the most food deserts. The map somewhat confirmed this hypothesis, given that one of the neighborhoods in the lower wards contained 5 food desert areas within it. Wealthy areas, such as Dupont, Kalorama Circle, and Logan Circle, did not contain many low food access areas, if at all.
+
+```{r map6, message = FALSE, warning = FALSE}
+clusters <- clusters %>%
+  mutate(num_food = lengths(st_covers(clusters, food)))
+
+ggplot(clusters) +
+  geom_sf(color = "white", 
+          aes(fill = num_food)) +
+  scale_fill_viridis_c(name = "Washington DC Districts\nby number of low-food access areas",
+                       breaks = breaks <- seq(0, 30, by = 5),
+                       labels = paste(prettyNum(breaks, big.mark = ","),
+                                      "food")) +
+  annotation_scale(location = "br") +
+  annotation_north_arrow(location = "tr",
+                         style = north_arrow_minimal()) +
+theme_map() +
+  theme(legend.position = "left", legend.background = element_rect(fill = alpha("white", 0.5),  color = "gray"))
+```
+

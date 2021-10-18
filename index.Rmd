@@ -22,9 +22,11 @@ font-family: arial}
 # introduction
 
 [![](thumbnails/focus-01.PNG)](https://mike-lid.github.io/folio/fullsize/focus.pdf){target="_blank"}
+\superscript^*__Fig.01___Overview of Cities Studied (Lidwin via the Buckminster Fuller Institute, 2021)*^
 
 
-\superscript^*Lucy Fellowes once  said, __"Every map is someone’s way of getting you to look at the world his or her  way."__ (Lucy  Fellowes,  Smithsonian  curator,  quoted  in  Henrikson  1994 and in Kitchin, Perkins, and Dodge 2009). This course is my first formal class on map-making, and I've enjoyed thinking about my bias in visualizing various urban phenomena. Throughout this semester, I used R Studio and ArcGIS to develop a small breathe of maps, considering  how these visualizations begin to reveal (and exclude) information about the cities studied. Each week, I spent time looking at different cities across the world, so that I can get an idea of how data availability differs between major global cities. *^
+
+\superscript^*Lucy Fellowes once  said, __"Every map is someone’s way of getting you to look at the world his or her  way."__ (Lucy  Fellowes,  Smithsonian  curator,  quoted  in  Henrikson  1994 and in Kitchin, Perkins, and Dodge 2009). This course is my first formal class on map-making, and I've enjoyed thinking about the lense I inevitably communicate when visualizing various urban phenomena. Throughout this semester, I used R Studio and ArcGIS to develop a small breathe of maps, considering  how these visualizations begin to reveal (and exclude) information about the cities studied. Each week, I spent time looking at different cities across the world, so that I can get an idea of how data availability differs between major global cities. *^
 
 <center>
 <p style="font-family: times, serif; font-size:13pt; font-style:italic">
@@ -54,7 +56,7 @@ This interactive map demonstrates the following skills:
 [![](thumbnails/interactive_map.PNG)](https://mike-lid.github.io/folio/fullsize/LIDWIN_Week6_InteractiveMap.html){target="_blank"}
 \superscript^*__Fig.02___Week 6 Assignment (Lidwin, 2021)*^
 
-## **Isochrones**
+## **Isochrones of Walkability**
 This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
 
 * Displaying multiple vector layers on the same map
@@ -64,7 +66,7 @@ This map shows isochrones based on transit travel times to the nearest school. I
 \superscript^*__Fig.03___Week 4 Assignment (Khinda, Lidwin, Montoya, 2021)*^
 
 
-## **Accessibility**
+## **Accessibility for Biking**
 This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
 
 * Displaying multiple vector layers on the same map
@@ -79,15 +81,23 @@ This map shows accessibility based on a distance-decay function of the walking t
 # **VENICE, ITALY**
 Here are two maps of Chelsea. I might include some text here about this set of maps.
 
-## **Clockboard Map**
+## **Flood Projections for Venice**
 This map demonstrates the following skills:
 
 * Georeferencing a raster image
 * Convert between raster and vector images (created vector outlines of rasterized data for flood areas)
 
-[![](thumbnails/georeference-01.png](https://mike-lid.github.io/folio/fullsize/georeference.pdf){target="_blank"}
+[![](thumbnails/georeference-01.png)](https://mike-lid.github.io/folio/fullsize/georeference.pdf){target="_blank"}
+\superscript^*__Fig.05___Week 2 Assignment (Jamal, Lidwin, McGlinchey, Prasad, 2021)*^
+
 
 # **WASHINGTON, DC**
 Here are two maps of San Luis Obispo, California. I might include some text here as well.
+[![](thumbnails/dc-bb-01.png)](https://mike-lid.github.io/folio/fullsize/dc-bb.pdf){target="_blank"}
+\superscript^*__Fig.06___Week 3 Assignment (Bonanno, Lidwin, Myros 2021)*^
+
+[![](thumbnails/dc-libraries-01.png)](https://mike-lid.github.io/folio/fullsize/dc-libraries.pdf){target="_blank"}
+\superscript^*__Fig.07___Week 3 Assignment (Bonanno, Lidwin, Myros 2021)*^
+
 
 
